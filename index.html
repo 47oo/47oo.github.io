@@ -166,6 +166,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Maven配置文件pom文件详解-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/Maven配置文件pom文件详解-四/">Maven配置文件pom文件详解(四)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/10/Maven配置文件pom文件详解-四/" class="archive-article-date">
+  	<time datetime="2017-04-10T03:17:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="pom-xml是什么"><a href="#pom-xml是什么" class="headerlink" title="pom.xml是什么"></a>pom.xml是什么</h2><p>是不是还记得,最开始创建Web项目的时候，要将所有的依赖项放到WEB-INF下面的lib目录下面才会加载。<strong>用面向对象的思想来看pom.xml,pom.xml帮你解决了依赖项之间的依赖关系,方便依赖项的替换和查找。pom.xml就是你需要放置需要依赖项的地方，并对子项目进行合理的组合</strong></p>
+<h2 id="pom-xml二级节点分配"><a href="#pom-xml二级节点分配" class="headerlink" title="pom.xml二级节点分配"></a>pom.xml二级节点分配</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></div><div class="line"> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line"> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0</div><div class="line">http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!--modelVersion 描述这个POM文件是遵从哪个版本的项目描述符,这里是由maven的版本来确定的--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 基本配置 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>...<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>...<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>...<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>...<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 依赖配置 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>...<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span>...<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span>...<span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">modules</span>&gt;</span>...<span class="tag">&lt;/<span class="name">modules</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span>...<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 构建配置 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span>...<span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">reporting</span>&gt;</span>...<span class="tag">&lt;/<span class="name">reporting</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 项目信息 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>...<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>...<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>...<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">inceptionYear</span>&gt;</span>...<span class="tag">&lt;/<span class="name">inceptionYear</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">licenses</span>&gt;</span>...<span class="tag">&lt;/<span class="name">licenses</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">organization</span>&gt;</span>...<span class="tag">&lt;/<span class="name">organization</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">developers</span>&gt;</span>...<span class="tag">&lt;/<span class="name">developers</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">contributors</span>&gt;</span>...<span class="tag">&lt;/<span class="name">contributors</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 环境设置 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">issueManagement</span>&gt;</span>...<span class="tag">&lt;/<span class="name">issueManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ciManagement</span>&gt;</span>...<span class="tag">&lt;/<span class="name">ciManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mailingLists</span>&gt;</span>...<span class="tag">&lt;/<span class="name">mailingLists</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scm</span>&gt;</span>...<span class="tag">&lt;/<span class="name">scm</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">prerequisites</span>&gt;</span>...<span class="tag">&lt;/<span class="name">prerequisites</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repositories</span>&gt;</span>...<span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span>...<span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span>...<span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">profiles</span>&gt;</span>...<span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/04/10/Maven配置文件pom文件详解-四/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/10/Maven配置文件pom文件详解-四/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Maven概念模型-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
